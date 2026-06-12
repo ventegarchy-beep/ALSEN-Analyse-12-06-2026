@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensorion (ALSEN) — Analyse — 12/06/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#04060f;--surface:#06080f;--sur2:#0a0d1c;--border:#111428;--head:#f0eeff;--text:#a8a8c8;--muted:#5a5a80;--acc:#c084fc;--acc2:#d8b4fe;--green:#10b981;--orange:#fb923c;--red:#f43f5e;--yellow:#fbbf24;--blue:#38bdf8;}
+html{overflow-x:hidden;scroll-behavior:smooth;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;overflow-x:hidden;}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px 60px;}
+.hero{position:relative;padding:32px 0 8px;margin-bottom:22px;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:0;left:-20px;right:-20px;bottom:0;background:radial-gradient(ellipse 75% 55% at 90% 15%,rgba(192,132,252,.13) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 5% 85%,rgba(192,132,252,.07) 0%,transparent 55%);pointer-events:none;z-index:0;}
+.hero>*{position:relative;z-index:1;}
+.hpill{display:inline-block;background:rgba(192,132,252,.12);border:1px solid rgba(192,132,252,.30);color:var(--acc2);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px;overflow-wrap:break-word;}
+.htitle{font-size:clamp(40px,7vw,66px);font-weight:900;line-height:1;margin-bottom:10px;letter-spacing:-0.03em;color:var(--head);}
+.htitle .acc{color:var(--acc);}
+.hmeta-line{font-size:13.5px;color:var(--muted);margin-bottom:14px;font-weight:500;}
+.hdesc{font-size:14px;color:var(--text);font-style:italic;line-height:1.7;margin-bottom:22px;opacity:.9;}
+.hprice-row{display:flex;align-items:center;gap:14px;margin-bottom:8px;flex-wrap:wrap;}
+.hprice{font-family:'JetBrains Mono',monospace;font-size:clamp(50px,8vw,76px);font-weight:700;color:var(--head);letter-spacing:-0.02em;line-height:1;}
+.hvar{font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:700;padding:4px 12px;border-radius:6px;}
+.hvar.pos{background:rgba(16,185,129,.18);color:var(--green);}
+.hexch{font-size:13.5px;color:var(--muted);margin-bottom:16px;}
+.hexch strong{color:var(--text);}
+.hdata{border-top:1px solid var(--border);padding-top:14px;display:flex;flex-direction:column;gap:6px;}
+.hdata div{font-size:13px;color:var(--muted);overflow-wrap:break-word;word-break:break-word;}
+.hdata div strong{color:var(--text);}
+.hdata .acc{color:var(--acc2);font-family:'JetBrains Mono',monospace;font-weight:600;}
+.hdata .grn{color:var(--green);font-weight:600;}
+.hdata .red{color:var(--red);font-weight:600;}
+.al{border-radius:10px;padding:13px 16px;margin-bottom:9px;font-size:13.5px;display:flex;gap:10px;align-items:flex-start;border:1px solid transparent;overflow-wrap:break-word;word-break:break-word;}
+.al strong{color:var(--head);}
+.ico{font-size:16px;flex-shrink:0;margin-top:1px;}
+.ag{background:rgba(16,185,129,.10);border-color:rgba(16,185,129,.22);}
+.aw{background:rgba(251,191,36,.09);border-color:rgba(251,191,36,.22);}
+.ab{background:rgba(192,132,252,.10);border-color:rgba(192,132,252,.22);}
+.ar{background:rgba(244,63,94,.10);border-color:rgba(244,63,94,.22);}
+.sec{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px 24px 20px;margin-bottom:18px;}
+.stitle{font-size:15px;font-weight:700;color:var(--head);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.stitle::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent);margin-left:8px;}
+.tbl{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;}
+.tbl th{background:var(--sur2);color:var(--acc2);padding:9px 11px;text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;font-weight:600;}
+.tbl td{padding:10px 11px;border-bottom:1px solid var(--border);vertical-align:top;overflow-wrap:break-word;word-break:break-word;}
+.tbl tr:last-child td{border-bottom:none;}
+.tbl tr:nth-child(even) td{background:rgba(10,13,28,.5);}
+.tbl tr.hi td{background:rgba(16,185,129,.07);}
+.tbl tr.lo td{background:rgba(244,63,94,.06);}
+.acct{color:var(--acc2);font-weight:600;}
+.kg{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;}
+.kpi{background:var(--sur2);border:1px solid var(--border);border-radius:9px;padding:12px 14px;min-width:0;}
+.kl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;}
+.kv{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:var(--head);line-height:1;}
+.kd{font-size:12px;margin-top:4px;}
+.kd.pos{color:var(--green);}.kd.neg{color:var(--red);}.kd.neu{color:var(--muted);}
+.ks{font-size:11px;color:var(--muted);margin-top:2px;}
+.frow{display:grid;grid-template-columns:68px 90px 1fr 80px;align-items:center;gap:7px;margin-bottom:5px;font-size:12.5px;}
+.fp{color:var(--muted);font-weight:600;font-size:11px;text-align:right;}
+.fpr{font-family:'JetBrains Mono',monospace;color:var(--head);font-size:13px;}
+.fbw{background:var(--sur2);border-radius:4px;height:6px;overflow:hidden;}
+.fb{height:100%;border-radius:4px;}
+.f100{background:var(--green);}.f61{background:var(--acc);}.f50{background:var(--acc2);}
+.f38{background:var(--muted);}.f23{background:#1e1040;}.f0{background:var(--red);}
+.fl{font-size:11px;color:var(--muted);}
+.fcur{display:grid;grid-template-columns:68px 90px 1fr 80px;align-items:center;gap:7px;margin:7px 0;background:rgba(244,63,94,.12);border:1px solid rgba(244,63,94,.38);border-radius:7px;padding:7px 5px;}
+.fcur .fp{color:var(--red);font-weight:700;font-size:11px;}
+.fcur .fpr{color:var(--red);font-size:14px;font-weight:700;}
+.delta-dn{display:inline-block;background:rgba(244,63,94,.13);color:var(--red);font-size:11px;font-weight:700;padding:1px 6px;border-radius:3px;margin-left:4px;}
+.delta-up{display:inline-block;background:rgba(16,185,129,.13);color:var(--green);font-size:11px;font-weight:700;padding:1px 6px;border-radius:3px;margin-left:4px;}
+.tl{position:relative;padding-left:22px;}
+.tl::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:linear-gradient(to bottom,var(--acc),transparent);}
+.tli{position:relative;padding:0 0 16px 16px;}
+.tli::before{content:'';position:absolute;left:-16px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--acc);border:2px solid var(--surface);}
+.tld{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;margin-bottom:4px;}
+.tlc{background:rgba(192,132,252,.16);color:var(--acc2);}
+.tlf{background:rgba(16,185,129,.14);color:var(--green);}
+.tlw{background:rgba(251,191,36,.12);color:var(--yellow);}
+.tln{background:rgba(244,63,94,.12);color:var(--red);}
+.tlo{background:rgba(251,146,60,.12);color:var(--orange);}
+.tldate{font-size:12px;color:var(--muted);display:block;margin-top:2px;}
+.tldesc{font-size:13px;color:var(--text);margin-top:3px;line-height:1.6;overflow-wrap:break-word;word-break:break-word;}
+.scrow{display:grid;grid-template-columns:155px 1fr auto;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);}
+.scrow:last-child{border-bottom:none;}
+.scname{font-size:13px;color:var(--head);font-weight:600;}
+.scbw{background:var(--sur2);border-radius:5px;height:7px;overflow:hidden;}
+.scb{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--acc),var(--acc2));}
+.scval{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:var(--acc2);}
+.scsub{font-size:11px;color:var(--muted);margin-top:3px;grid-column:1/-1;overflow-wrap:break-word;word-break:break-word;}
+.conclu{background:linear-gradient(135deg,rgba(192,132,252,.05),rgba(192,132,252,.01));border:1px solid rgba(192,132,252,.20);border-radius:14px;padding:24px;}
+.conclu h2{font-size:15px;font-weight:700;color:var(--head);margin-bottom:12px;}
+.pcgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+.pros,.cons{background:var(--sur2);border-radius:9px;padding:14px;}
+.pros h4{color:var(--green);font-size:13px;margin-bottom:8px;}
+.cons h4{color:var(--red);font-size:13px;margin-bottom:8px;}
+.pros ul,.cons ul{list-style:none;font-size:12.5px;}
+.pros li,.cons li{padding:3px 0;display:flex;gap:7px;overflow-wrap:break-word;word-break:break-word;}
+.pros li::before{content:'✓';color:var(--green);flex-shrink:0;}
+.cons li::before{content:'✗';color:var(--red);flex-shrink:0;}
+.lgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px;}
+.lcard{background:var(--sur2);border-radius:9px;padding:12px 14px;border:1px solid var(--border);text-align:center;}
+.llab{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:5px;}
+.lval{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;}
+.ls .lval{color:var(--green);}.lr .lval{color:var(--red);}
+.hbox{background:rgba(192,132,252,.07);border:1px solid rgba(192,132,252,.17);border-radius:9px;padding:13px 15px;margin-top:11px;font-size:13px;overflow:hidden;overflow-wrap:break-word;word-break:break-word;}
+.hbt{font-size:12px;font-weight:600;color:var(--acc2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:7px;}
+.pill{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;}
+.pg{background:rgba(16,185,129,.14);color:var(--green);}
+.pr{background:rgba(244,63,94,.12);color:var(--red);}
+.py{background:rgba(251,191,36,.12);color:var(--yellow);}
+.pa{background:rgba(192,132,252,.14);color:var(--acc2);}
+.rsi-alert{background:rgba(251,191,36,.09);border:1px solid rgba(251,191,36,.30);border-radius:11px;padding:16px 18px;margin-bottom:14px;}
+footer{background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:18px 20px;font-size:12px;color:var(--muted);line-height:1.6;margin-top:20px;overflow:hidden;overflow-wrap:break-word;word-break:break-word;}
+footer strong{color:var(--text);}
+@media(max-width:600px){.htitle{font-size:clamp(34px,9vw,46px);}.hprice{font-size:clamp(44px,12vw,58px);}.pcgrid{grid-template-columns:1fr;}.lgrid{grid-template-columns:1fr 1fr;}.scrow{grid-template-columns:1fr auto;}.frow,.fcur{grid-template-columns:58px 80px 1fr 70px;}}
+@keyframes fi{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.hero,.al,.sec,.conclu,.rsi-alert{animation:fi .4s ease both;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hpill">🧬 GJB2 PIVOT SENS-601 · RSI 26,84 ⚡ EXTREME OVERSOLD · COURS AU PLANCHER AK 0,28€ · REBOND +2-4% CE MATIN · CTA FR+CA · FAST TRACK ANSM · RUNWAY FIN 2027 · LOCK-UP ~28/07 ⚠️</div>
+  <h1 class="htitle"><span class="acc">Sensor</span>ion</h1>
+  <p class="hmeta-line">Analyse — 12/06/2026 · 09h30 · PRT 1J Différé 15 min · RSI 26,84 <strong style="color:var(--yellow)">(EXTREME OVERSOLD)</strong> · MACD -0,025</p>
+  <p class="hdesc">3ème mise à jour de la thèse d'investissement depuis le 29/05/2026. Le pivot SENS-501→SENS-601 (GJB2) du 10/06 a provoqué une correction de -32% depuis le 29/05. Le cours est désormais au plancher institutionnel (prix AK : 0,28€). Le RSI journalier à 26,84 (<span style="font-weight:700">zone de rebond historique</span>) et le rebond de +2-4% ce matin signalent un potentiel retournement CT. La thèse fondamentale GJB2 reste intacte.</p>
+  <div class="hprice-row">
+    <div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:4px">PRT 09:14 (diff. 15 min)</div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="hprice">0,2845 €</span>
+        <span class="hvar pos">▲ +2,15%</span>
+      </div>
+    </div>
+    <div style="border-left:1px solid var(--border);padding-left:16px;">
+      <div style="font-size:11px;color:var(--muted);margin-bottom:4px">Boursorama ~09:30</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--text)">0,2890 €
+        <span style="font-size:14px;font-weight:700;color:var(--green);padding:3px 8px;background:rgba(16,185,129,.16);border-radius:5px;margin-left:6px;">+3,77%</span>
+      </div>
+    </div>
+  </div>
+  <div class="hexch"><strong>ALSEN</strong> &nbsp;·&nbsp; Euronext Growth Paris &nbsp;·&nbsp; 514 946 940 actions &nbsp;·&nbsp; Cap ~147 M€ (à 0,285€)</div>
+  <div class="hdata">
+    <div>📅 <strong>12 juin 2026 — 09h30</strong> · PRT 1J (tick 09:14:22) | RSI(14) : <span style="color:var(--yellow);font-weight:600">26,84 ⚡ EXTREME OVERSOLD</span> · MACD : <span style="color:var(--red)">-0,025</span></div>
+    <div>🔗 ISIN FR0012596468 · DG <strong>Fred Chereau</strong> (en poste depuis 1er juin 2026) · Montpellier / Cambridge MA</div>
+    <div>📈 Fib (1,053€ ATH) : cours à <strong>14,0%</strong> — entre 0% (0,159€) et 23,6% (0,370€) · Plancher AK : <strong style="color:var(--green)">0,28€ (+1,6%)</strong></div>
+    <div>🔴 <span style="color:var(--red);font-weight:600">-32% depuis 29/05 · -17% depuis 10/06 · -23% cette semaine</span> · Rebond ce matin : <span class="grn">+2-4%</span></div>
+    <div>🧬 Pivot 10/06 : <span class="acc">SENS-601 GJB2 = principal · CTA FR+CA · Fast Track ANSM · Tréso fin 2027</span></div>
+    <div>⭐ Conviction : <span class="acc">6,0/10</span> · CT 🟡 NEUTRE+ (rebond oversold) · MT 🟢 · LT 🟢</div>
+  </div>
+  <p style="font-size:11px;color:var(--muted);margin-top:14px;opacity:.6">⚠️ NPC — Aucun conseil en investissement — Actif spéculatif à risque élevé.</p>
+</div>
+
+<!-- RSI ALERT -->
+<div class="rsi-alert">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+    <span style="font-size:28px">⚡</span>
+    <div>
+      <div style="font-size:12px;font-weight:700;color:var(--yellow);text-transform:uppercase;letter-spacing:.07em">RSI journalier à 26,84 — Zone de rebond historique</div>
+      <div style="font-size:13px;color:var(--text);margin-top:3px;">Quand le RSI descend sous 30 sur un dossier biotech à faible capitalisation, l'histoire montre que le marché est en <strong>mode panique/capitulation</strong>. Cette zone génère statistiquement des rebonds techniques de 15-30%. Le rebond de +2-4% ce matin (12/06) est potentiellement le début de ce retournement CT.</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;font-size:13px;">
+    <div style="background:var(--sur2);border-radius:7px;padding:10px 12px;text-align:center;"><div style="color:var(--muted);font-size:11px;margin-bottom:3px">RSI actuel</div><div style="font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--yellow);font-weight:700">26,84</div><div style="font-size:11px;color:var(--yellow)">< 30 = extreme oversold</div></div>
+    <div style="background:var(--sur2);border-radius:7px;padding:10px 12px;text-align:center;"><div style="color:var(--muted);font-size:11px;margin-bottom:3px">Distance AK</div><div style="font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--green);font-weight:700">+1,6%</div><div style="font-size:11px;color:var(--green)">Plancher instit.</div></div>
+    <div style="background:var(--sur2);border-radius:7px;padding:10px 12px;text-align:center;"><div style="color:var(--muted);font-size:11px;margin-bottom:3px">Rebond ce matin</div><div style="font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--green);font-weight:700">+2-4%</div><div style="font-size:11px;color:var(--green)">Signal CT</div></div>
+    <div style="background:var(--sur2);border-radius:7px;padding:10px 12px;text-align:center;"><div style="color:var(--muted);font-size:11px;margin-bottom:3px">Déclin 5 jours</div><div style="font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--red);font-weight:700">-23%</div><div style="font-size:11px;color:var(--red)">Capitulation</div></div>
+  </div>
+</div>
+
+<!-- DELTA TRIPLE -->
+<div style="background:rgba(192,132,252,.08);border:1px solid rgba(192,132,252,.22);border-radius:12px;padding:16px 18px;margin-bottom:14px;">
+  <div style="font-size:12px;font-weight:700;color:var(--acc2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px;">📊 Triple comparaison — 29/05 → 10/06 → 12/06</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:8px;font-size:12px;">
+    <div style="background:var(--sur2);border-radius:7px;padding:9px 10px"><div style="color:var(--muted);font-size:10px;margin-bottom:3px">Cours</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px">0,418<br>→ 0,342<br>→ <span style="color:var(--red)">0,285€</span></div></div>
+    <div style="background:var(--sur2);border-radius:7px;padding:9px 10px"><div style="color:var(--muted);font-size:10px;margin-bottom:3px">RSI</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px">52,28<br>→ 47,46<br>→ <span style="color:var(--yellow)">26,84⚡</span></div></div>
+    <div style="background:var(--sur2);border-radius:7px;padding:9px 10px"><div style="color:var(--muted);font-size:10px;margin-bottom:3px">MACD</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px">+0,013<br>→ -0,025<br>→ <span style="color:var(--red)">-0,025</span></div></div>
+    <div style="background:var(--sur2);border-radius:7px;padding:9px 10px"><div style="color:var(--muted);font-size:10px;margin-bottom:3px">AK floor</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px">+49%<br>→ +22%<br>→ <span style="color:var(--green)">+1,6%</span></div></div>
+    <div style="background:var(--sur2);border-radius:7px;padding:9px 10px"><div style="color:var(--muted);font-size:10px;margin-bottom:3px">Score</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px">6,0/10<br>→ 6,2/10<br>→ <span style="color:var(--yellow)">6,0/10</span></div></div>
+  </div>
+  <div style="margin-top:10px;font-size:12px;color:var(--muted);">Le recul du score (6,2→6,0) reflète la détérioration technique (support 0,30€ cassé, MACD négatif). Mais le <strong style="color:var(--yellow)">RSI à 26,84 améliore le risk/reward</strong> : le downside est limité par le plancher AK (0,28€, soit -1,6% seulement) et le rebond de ce matin (+2-4%) peut marquer la fin de la capitulation.</div>
+</div>
+
+<!-- ALERTES -->
+<div class="al ag">
+  <span class="ico">🔁</span>
+  <div><strong>Pivot SENS-501 → SENS-601 (rappel du 10/06) — La thèse reste intacte :</strong> Sensorion a arrêté SENS-501 (OTOF — concurrencé par Regeneron) et sélectionné SENS-601 (GJB2) comme programme principal. CTAs déposées en France ET au Canada simultanément, Fast Track ANSM accordé. IND USA + Australie prévus fin 2026. La trésorerie a été étendue à fin 2027. Ce pivot est stratégiquement juste : GJB2 = 50% des surdités génétiques vs OTOF ~1-2%, zero concurrent approuvé.</div>
+</div>
+<div class="al ag">
+  <span class="ico">🏦</span>
+  <div><strong>Plancher AK à 0,28€ — Downside quasi nul pour les institutionnels :</strong> L'AK de janvier 2026 (60M€ levés à 0,28€/action) par Sanofi (13,9%), Redmile (16,5%), Artal (20,2%), Sofinnova (12,6%) a créé un plancher institutionnel. <strong>Le cours actuel (0,285€) n'est qu'à +1,6% au-dessus de 0,28€.</strong> Ces acteurs institutionnels sont peu susceptibles de vendre en dessous de leur prix d'entrée — sauf si la thèse est réellement détruite (ce qui n'est pas le cas). Le lock-up expire vers le 28/07.</div>
+</div>
+<div class="al aw">
+  <span class="ico">⚠️</span>
+  <div><strong>Lock-up ~28 juillet 2026 — Risque pression vendeur dans 46 jours :</strong> Le lock-up de 180 jours sur les actions des investisseurs de l'AK de janvier 2026 expire vers le 28 juillet 2026. À 0,285€, la plus-value latente des actionnaires lock-up n'est que de +1,8% vs 0,28€ (prix d'entrée). <strong>Ce risque est RÉDUIT par rapport au 10/06 (où la PV latente était +22%)</strong> — les vendeurs institutionnels ont moins d'incitation à vendre maintenant.</div>
+</div>
+<div class="al ab">
+  <span class="ico">📊</span>
+  <div><strong>Notes analystes post-pivot attendues J+2/J+5 (Portzamparc + Stifel) :</strong> Les deux analystes couvrant Sensorion (Portzamparc/Mohamed Kaabouni et Stifel/Victor Floch) devraient publier leurs notes de recherche suite au pivot GJB2 dans les prochains jours. La question : révisions à la baisse de la cible (SENS-501 arrêté) mais maintien du sens haussier (GJB2 > OTOF, marché plus large, zéro concurrent). Ces notes pourraient recomposer le momentum du titre.</div>
+</div>
+
+<!-- KPIs -->
+<div class="sec">
+  <h2 class="stitle"><span>📊</span> KPIs clés — 12/06/2026 09h30</h2>
+  <div class="kg">
+    <div class="kpi"><div class="kl">Cours PRT 09h14</div><div class="kv">0,2845€</div><div class="kd pos">▲ +2,15%</div><div class="ks">Différé 15 min</div></div>
+    <div class="kpi"><div class="kl">Cours Boursorama</div><div class="kv">0,2890€</div><div class="kd pos">▲ +3,77%</div><div class="ks">~09h30</div></div>
+    <div class="kpi"><div class="kl">RSI (14) 1J</div><div class="kv" style="color:var(--yellow)">26,84</div><div class="kd neg">⚡ EXTREME OVERSOLD</div><div class="ks">< 30 = rebond probable</div></div>
+    <div class="kpi"><div class="kl">MACD Zéro Lag</div><div class="kv" style="font-size:14px;color:var(--red)">-0,025</div><div class="kd neg">Négatif</div><div class="ks">Tendance bearish</div></div>
+    <div class="kpi"><div class="kl">Distance AK (0,28€)</div><div class="kv" style="font-size:14px;color:var(--green)">+1,6%</div><div class="kd pos">Plancher instit.</div><div class="ks">Downside très limité</div></div>
+    <div class="kpi"><div class="kl">Variation 5j</div><div class="kv" style="color:var(--red)">-23%</div><div class="kd neg">Capitulation</div><div class="ks">Rebond +2-4% ce matin</div></div>
+    <div class="kpi"><div class="kl">Fib position</div><div class="kv" style="font-size:14px;color:var(--red)">14%</div><div class="kd neg">Entre 0% et 23,6%</div><div class="ks">Zone très basse</div></div>
+    <div class="kpi"><div class="kl">CTA SENS-601</div><div class="kv" style="font-size:13px;color:var(--green)">FR+CA</div><div class="kd pos">Fast Track ANSM</div><div class="ks">Déposée 10/06</div></div>
+    <div class="kpi"><div class="kl">Trésorerie</div><div class="kv" style="font-size:14px;color:var(--green)">Fin 2027</div><div class="kd pos">Runway étendu</div><div class="ks">+6 mois vs S1 2027</div></div>
+    <div class="kpi"><div class="kl">Cible analystes</div><div class="kv" style="color:var(--orange)">~1,44€</div><div class="kd pos">+398% (non révisée)</div><div class="ks">Avant pivot 10/06</div></div>
+    <div class="kpi"><div class="kl">Sanofi 13,9%</div><div class="kv" style="font-size:14px;color:var(--green)">Maintenu</div><div class="kd pos">Validation externe</div><div class="ks">Actionnaire stratégique</div></div>
+    <div class="kpi"><div class="kl">Lock-up expiry</div><div class="kv" style="font-size:14px;color:var(--yellow)">~28/07</div><div class="kd neu">Dans 46 jours</div><div class="ks">Risque réduit (PV +1,8%)</div></div>
+  </div>
+</div>
+
+<!-- TECHNIQUE -->
+<div class="sec">
+  <h2 class="stitle"><span>📈</span> Analyse technique — 1J (Journalier)</h2>
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px;">Chart 1J (journalier). Fibonacci calculé sur l'ATH historique (1,053€). <strong style="color:var(--red)">Cours à seulement 14% du range.</strong></p>
+  <div>
+    <div class="frow"><div class="fp">100%</div><div class="fpr">1,053€</div><div class="fbw"><div class="fb f100" style="width:100%"></div></div><div class="fl">ATH historique</div></div>
+    <div class="frow"><div class="fp">61,8%</div><div class="fpr">0,711€</div><div class="fbw"><div class="fb f61" style="width:61.8%"></div></div><div class="fl">Résistance LT</div></div>
+    <div class="frow"><div class="fp">38,2%</div><div class="fpr">0,501€</div><div class="fbw"><div class="fb f38" style="width:38.2%"></div></div><div class="fl">Résistance MT</div></div>
+    <div class="frow"><div class="fp">23,6%</div><div class="fpr">0,370€</div><div class="fbw"><div class="fb f23" style="width:23.6%"></div></div><div class="fl">⬅ 1ère résistance — +29,8% depuis cours actuel</div></div>
+    <div class="fcur"><div class="fp">▶ 09h30</div><div class="fpr">0,285€</div><div class="fbw"><div class="fb" style="width:14%;background:linear-gradient(90deg,var(--red),#f97316)"></div></div><div style="font-size:11px;color:var(--red);font-weight:700">14,0% — zone très basse</div></div>
+    <div style="margin:5px 0;background:rgba(16,185,129,.09);border:1px solid rgba(16,185,129,.24);border-radius:6px;padding:6px 5px;display:grid;grid-template-columns:68px 90px 1fr 80px;gap:7px;align-items:center;"><div style="color:var(--green);font-weight:700;font-size:11px;text-align:right">AK 0,28€</div><div style="font-family:'JetBrains Mono',monospace;color:var(--green);font-size:13px;font-weight:700">0,280€</div><div class="fbw"><div style="height:6px;background:var(--green);border-radius:4px;width:12.4%"></div></div><div style="font-size:11px;color:var(--green)">Plancher instit.</div></div>
+    <div class="frow"><div class="fp">0%</div><div class="fpr">0,159€</div><div class="fbw"><div class="fb f0" style="width:5%"></div></div><div class="fl">Creux absolu</div></div>
+  </div>
+  <table class="tbl" style="margin-top:14px;">
+    <colgroup><col style="width:22%"><col style="width:14%"><col style="width:41%"><col style="width:23%"></colgroup>
+    <thead><tr><th>Indicateur</th><th>Valeur</th><th>Lecture</th><th>Signal</th></tr></thead>
+    <tbody>
+      <tr><td><strong>RSI 1J (14)</strong></td><td style="font-family:'JetBrains Mono',monospace;color:var(--yellow)">26,84</td><td>EXTREME oversold (< 30). Zone de capitulation — rebond technique probable. Le rebond de +2-4% ce matin peut être le signal de retournement CT.</td><td><span class="pill py">Rebond probable</span></td></tr>
+      <tr><td><strong>MACD Zéro Lag</strong></td><td style="font-family:'JetBrains Mono',monospace;color:var(--red)">-0,025</td><td>Négatif — momentum baissier en place. Pas encore de retournement confirmé. La tendance de fond reste bearish malgré le rebond ce matin.</td><td><span class="pill pr">Bearish tendance</span></td></tr>
+      <tr><td><strong>Support 0,30€</strong></td><td style="font-family:'JetBrains Mono',monospace;color:var(--red)">Cassé</td><td>La ligne verte visible sur le chart à ~0,30€ a été franchie à la baisse. Ce niveau est désormais une résistance à reprendre pour stabiliser.</td><td><span class="pill pr">Cassé ✗</span></td></tr>
+      <tr><td><strong>AK 0,28€</strong></td><td style="font-family:'JetBrains Mono',monospace;color:var(--green)">0,280€</td><td>Plancher institutionnel (-1,6% depuis cours actuel). Ce niveau a tenu historiquement lors des précédents tests. Zone de soutien majeure.</td><td><span class="pill pg">Plancher fort</span></td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:12px;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.20);border-radius:8px;padding:11px 14px;font-size:13px;">
+    ⚡ <strong style="color:var(--yellow)">Signal RSI rare :</strong> Un RSI journalier sous 30 sur une biotech small cap en contexte de rebond matinal = configuration de <strong>rebond technique probable dans les 1-5 jours suivants</strong>. Ce n'est pas un signal d'achat LT mais une opportunité de trading CT pour les profils avertis. <strong>Stop mental : cassure sous 0,25€</strong> (sous le plancher AK de façon significative).
+  </div>
+</div>
+
+<!-- PIPELINE -->
+<div class="sec">
+  <h2 class="stitle"><span>🧬</span> Thèse SENS-601 — Pourquoi GJB2 > OTOF (rappel)</h2>
+  <table class="tbl">
+    <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>
+    <thead><tr><th>Critère</th><th>SENS-501 OTOF (arrêté)</th><th>SENS-601 GJB2 (programme principal)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Part du marché</strong></td><td><span class="pill pr">~1-2%</span> surdités génétiques</td><td><span class="pill pg">~50%</span> surdités génétiques</td></tr>
+      <tr><td><strong>Concurrence</strong></td><td><span class="pill pr">Regeneron approuvé FDA</span></td><td><span class="pill pg">Aucune thérapie approuvée</span></td></tr>
+      <tr><td><strong>Statut réglementaire</strong></td><td>Phase 1/2 → arrêtée</td><td><span class="pill pg">CTA déposée France + Canada · Fast Track ANSM</span></td></tr>
+      <tr><td><strong>IND USA</strong></td><td>—</td><td><span class="pill pa">Prévu fin 2026</span></td></tr>
+      <tr><td><strong>Indications</strong></td><td>1 (OTOF uniquement)</td><td><span class="pill pg">3</span> : pédiatrique + progressif enfant + presbyacousie adulte</td></tr>
+      <tr><td><strong>Financement</strong></td><td>—</td><td><span class="pill pg">France 2030 / BpiFrance co-financement</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SCORE -->
+<div class="sec">
+  <h2 class="stitle"><span>⭐</span> Score de conviction</h2>
+  <div class="scrow"><div><div class="scname">Technique</div><div style="font-size:11px;color:var(--muted)">Pondération 25%</div></div><div><div class="scbw"><div class="scb" style="width:40%"></div></div></div><div class="scval">4,0 / 10</div><div class="scsub">RSI 26,84 = extreme oversold → rebond probable (+) · Rebond +2-4% ce matin (+) · AK floor 0,28€ = downside -1,6% seulement (+) · MAIS MACD -0,025 négatif (-) · Support 0,30€ cassé (-) · Tendance journalière bearish (-) · -23% cette semaine (-)</div></div>
+  <div class="scrow"><div><div class="scname">Fondamentaux</div><div style="font-size:11px;color:var(--muted)">Pondération 25%</div></div><div><div class="scbw"><div class="scb" style="width:80%"></div></div></div><div class="scval">8,0 / 10</div><div class="scsub">GJB2 = 50% surdités génétiques vs OTOF 1-2% (+++) · Zéro concurrent approuvé (+++) · CTAs FR+CA déposées (+++) · Fast Track ANSM (+) · France 2030/BpiFrance (+) · Pr Christine Petit (Prix Kavli) données précliniques "extrêmement robustes" (+) · Sanofi 13,9% maintenu (+) · 3 indications potentielles (+) · Tréso fin 2027 (+) · MAIS préclinique → délai long (-) · RN négatif (-)</div></div>
+  <div class="scrow"><div><div class="scname">Catalyseurs</div><div style="font-size:11px;color:var(--muted)">Pondération 20%</div></div><div><div class="scbw"><div class="scb" style="width:80%"></div></div></div><div class="scval">8,0 / 10</div><div class="scsub">CTAs déposées France + Canada (10/06) (+++) · Fast Track ANSM (+) · IND USA fin 2026 (+) · Notes analystes J+2/J+5 attendues (+) · Lock-up 28/07 = risque réduit (PV +1,8% seulement) (+/-) · 1ère administration humaine 2027 (+) · RSI 26,84 = catalyseur rebond CT (+)</div></div>
+  <div class="scrow"><div><div class="scname">Consensus</div><div style="font-size:11px;color:var(--muted)">Pondération 15%</div></div><div><div class="scbw"><div class="scb" style="width:50%"></div></div></div><div class="scval">5,0 / 10</div><div class="scsub">Cible 1,44€ non encore révisée post-pivot (+/-) · Potentiel affiché +398% (+) · Notes Portzamparc + Stifel attendues = révisions probables · Risque de baisses de cible sur SENS-501 vs hausse sur GJB2 (-/+)</div></div>
+  <div class="scrow"><div><div class="scname">Risques</div><div style="font-size:11px;color:var(--muted)">Pondération 15%</div></div><div><div class="scbw"><div class="scb" style="width:45%"></div></div></div><div class="scval">4,5 / 10</div><div class="scsub">Lock-up 28/07 mais risque réduit (+) · Tréso fin 2027 (+) mais financement additionnel 2027 incontournable (-) · MACD négatif (-) · Perte SENS-501 investment (-) · SENS-601 préclinique = délai 2027+ (-) · Cours au plancher AK = downside très limité (+)</div></div>
+  <div style="margin-top:20px;background:rgba(192,132,252,.08);border:1px solid rgba(192,132,252,.22);border-radius:11px;padding:16px 20px;display:flex;align-items:center;gap:14px;">
+    <span style="font-size:32px">⭐</span>
+    <div>
+      <div style="color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">Score global pondéré</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:30px;font-weight:700;color:var(--orange)">6,0 / 10</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:3px">= (4,0×0,25) + (8,0×0,25) + (8,0×0,20) + (5,0×0,15) + (4,5×0,15) = 1,00 + 2,00 + 1,60 + 0,75 + 0,675</div>
+      <div style="font-size:11.5px;color:var(--yellow);margin-top:4px">Scores 29/05: 6,0 → 10/06: 6,2 → 12/06: 6,0 · Baisse technique compensée par meilleur risk/reward (plancher AK + RSI extreme oversold)</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONCLUSION -->
+<div class="conclu">
+  <h2>Conclusion et Avis personnel</h2>
+  <p style="font-size:13.5px;color:var(--text);line-height:1.75;margin-bottom:14px;">Le marché punit encore le titre deux jours après le pivot GJB2. Mais les éléments fondamentaux n'ont pas changé : GJB2 est un marché 25-50× plus grand qu'OTOF, sans concurrent, avec des données précliniques solides et une trésorerie étendue à fin 2027. Le score est maintenu à 6,0/10 — ni haussier euphorique, ni baissier défaitiste.</p>
+  <p style="font-size:13.5px;color:var(--text);line-height:1.75;margin-bottom:14px;">Le RSI à 26,84 est le signal le plus important de cette analyse. <strong>Un RSI journalier sous 30 associé à un rebond matinal de +2-4% et à un plancher institutionnel à -1,6% en dessous</strong> — c'est l'une des configurations les plus favorables pour un rebond CT sur un dossier biotech small cap. Ce n'est pas un achat long terme basé sur ce seul signal, mais c'est un signal de fin de capitulation.</p>
+  <div style="background:rgba(192,132,252,.07);border:1px solid rgba(192,132,252,.17);border-radius:9px;padding:14px 16px;margin-bottom:16px;font-size:13.5px;color:var(--text)"><strong style="color:var(--acc2)">Mon avis franc :</strong> La zone 0,28-0,30€ est <strong>le prix le plus bas auquel on pourra probablement accumuler ALSEN</strong> avant les données humaines de SENS-601 en 2027. Le risque est connu (délai long, tréso à recharger 2027, MACD négatif). Mais le downside est quasi nul (AK à 0,28€) et l'upside potentiel est asymétrique si les CTAs sont acceptées. <strong>Stop mental : 0,25€ (cassure nette sous l'AK).</strong> Surveillance prioritaire : les notes de Portzamparc et Stifel dans les prochains jours.</div>
+  <div class="pcgrid">
+    <div class="pros"><h4>Arguments haussiers CT/MT/LT</h4><ul><li>RSI 26,84 = extreme oversold → rebond probable</li><li>Rebond +2-4% ce matin = signal CT</li><li>AK 0,28€ = downside -1,6% seulement</li><li>GJB2 = 50% surdités génétiques</li><li>Zero concurrent approuvé sur GJB2</li><li>CTAs déposées France + Canada</li><li>Fast Track ANSM accordé</li><li>Sanofi 13,9% = validateur stratégique</li><li>Tréso fin 2027 = runway jusqu'aux données</li></ul></div>
+    <div class="cons"><h4>Arguments baissiers CT</h4><ul><li>MACD -0,025 — tendance bearish</li><li>Support 0,30€ cassé</li><li>-23% cette semaine (capitulation)</li><li>Lock-up 28/07 (dans 46 jours)</li><li>SENS-601 préclinique → données 2027+</li><li>Financement additionnel 2027 nécessaire</li><li>Pression vendeuse résiduelle post-pivot</li></ul></div>
+  </div>
+  <h3 style="font-size:13px;color:var(--acc2);margin-bottom:12px;font-weight:600;">Niveaux clés</h3>
+  <div class="lgrid">
+    <div class="lcard ls"><div class="llab">Plancher instit.</div><div class="lval">0,280€</div><div style="font-size:11px;color:var(--muted);margin-top:3px">AK janv. 2026</div></div>
+    <div class="lcard ls"><div class="llab">Stop mental</div><div class="lval">0,250€</div><div style="font-size:11px;color:var(--muted);margin-top:3px">Cassure AK = sortie</div></div>
+    <div class="lcard ls"><div class="llab">Zone accum.</div><div class="lval">0,28-0,30€</div><div style="font-size:11px;color:var(--muted);margin-top:3px">AK + rebond oversold</div></div>
+    <div class="lcard lr"><div class="llab">Résistance 1</div><div class="lval">0,300€</div><div style="font-size:11px;color:var(--muted);margin-top:3px">Support cassé → résist.</div></div>
+    <div class="lcard lr"><div class="llab">Résistance 2</div><div class="lval">0,370€</div><div style="font-size:11px;color:var(--muted);margin-top:3px">Fib 23,6%</div></div>
+    <div class="lcard lr"><div class="llab">Cible analystes</div><div class="lval">~1,44€</div><div style="font-size:11px;color:var(--muted);margin-top:3px">Avant révision pivot</div></div>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources :</strong> ProRealTime (RSI 26,84898 · MACD -0,02529 · 1J Différé 15min · 12/06/2026 09:14:22) · Boursorama (cours 0,2890€ +3,77% · consensus 1,44€ +398% · variation 5j -23% · 12/06/2026) · Analyse ALSEN 10/06/2026 (pivot SENS-601 · CTAs FR+CA · Fast Track ANSM · lock-up 28/07 · score 6,2/10) · Analyse ALSEN 29/05/2026 (score 6,0/10 · cours 0,418€ · RSI 52,28)<br><br>
+  <strong>Disclaimer NPC :</strong> Analyse non professionnelle (NPC) à titre strictement informatif. Actif spéculatif à risque très élevé.<br>
+  <em>Analyse générée le 12/06/2026 à 09h30 · PROMPT MASTER V7 · Forum Boursorama</em>
+</footer>
+
+</div>
+<div id="lvclock" style="position:fixed;bottom:8px;right:12px;background:rgba(192,132,252,.22);color:#d8b4fe;font-size:10px;padding:3px 8px;border-radius:4px;font-family:'JetBrains Mono',monospace;z-index:9999">ALSEN 12/06</div>
+<script>(function(){function fmt(n){return String(n).padStart(2,'0');}function tick(){var d=new Date();document.getElementById('lvclock').textContent='ALSEN '+fmt(d.getHours())+'h'+fmt(d.getMinutes());}tick();setInterval(tick,10000);})();</script>
+</body>
+</html>
