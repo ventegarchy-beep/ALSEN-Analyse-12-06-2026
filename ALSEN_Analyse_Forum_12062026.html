@@ -168,15 +168,22 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 .acct{color:var(--acc2);font-weight:600;}
 
 /* ── Score ── */
-.scrow{display:grid;grid-template-columns:160px 1fr auto;
-  align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--border);}
-.scrow:last-child{border-bottom:none;}
-.scname{font-size:13px;color:var(--head);font-weight:600;}
-.scbw{background:var(--sur2);border-radius:5px;height:7px;overflow:hidden;}
+/* ── Score section entièrement revu V7.1 ── */
+.scwrap{display:flex;flex-direction:column;gap:14px;}
+.sccard{background:var(--sur2);border:1px solid var(--border);border-radius:12px;padding:18px 20px;}
+.sccard-top{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;margin-bottom:12px;}
+.scname{font-size:14px;color:var(--head);font-weight:700;}
+.scpond{font-size:11px;color:var(--muted);margin-top:2px;}
+.scval{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;color:var(--acc2);white-space:nowrap;}
+.scbw{background:var(--bg);border-radius:5px;height:8px;overflow:hidden;margin-bottom:14px;}
 .scb{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--acc),var(--acc2));}
-.scval{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:var(--acc2);}
-.scsub{font-size:11.5px;color:var(--muted);margin-top:5px;
-  grid-column:1/-1;overflow-wrap:break-word;word-break:break-word;line-height:1.6;}
+.scargs{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.scpros,.sccons{display:flex;flex-direction:column;gap:5px;}
+.scarg{font-size:13px;line-height:1.55;display:flex;gap:7px;
+  overflow-wrap:break-word;word-break:break-word;}
+.scarg .ico-plus{color:var(--green);flex-shrink:0;font-weight:700;font-size:13px;}
+.scarg .ico-minus{color:var(--red);flex-shrink:0;font-weight:700;font-size:13px;}
+.scarg-text{color:var(--text);}
 
 /* ── Chronologie ── */
 .tl{position:relative;padding-left:24px;}
@@ -266,7 +273,7 @@ footer strong{color:var(--text);}
   .kg{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
   .pcgrid{grid-template-columns:1fr;}
   .lgrid{grid-template-columns:1fr 1fr;}
-  .scrow{grid-template-columns:1fr auto;}
+  .scargs{grid-template-columns:1fr;}
   .frow,.fcur,.fak{grid-template-columns:56px 78px 1fr 78px;}
 }
 @keyframes fi{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
@@ -499,40 +506,116 @@ footer strong{color:var(--text);}
 <div class="sec">
   <h2 class="stitle"><span>⭐</span> Score de conviction — 12/06/2026</h2>
 
-  <div class="scrow">
-    <div><div class="scname">Technique</div><div style="font-size:11px;color:var(--muted)">Pondération 25%</div></div>
-    <div><div class="scbw"><div class="scb" style="width:40%"></div></div></div>
-    <div class="scval">4,0 / 10</div>
-    <div class="scsub">RSI 26,84 = extreme oversold → rebond CT probable (+) · Rebond +2-4% ce matin (+) · AK floor 0,28€ = downside -1,6% seulement (+) · MACD -0,025 négatif (-) · Support 0,30€ cassé (-) · Tendance journalière bearish (-) · -23% cette semaine (-)</div>
-  </div>
+  <div class="scwrap">
 
-  <div class="scrow">
-    <div><div class="scname">Fondamentaux</div><div style="font-size:11px;color:var(--muted)">Pondération 25%</div></div>
-    <div><div class="scbw"><div class="scb" style="width:80%"></div></div></div>
-    <div class="scval">8,0 / 10</div>
-    <div class="scsub">GJB2 = 50% surdités génétiques vs OTOF 1-2% (+++) · Zéro concurrent approuvé sur GJB2 (+++) · CTAs France + Canada déposées (+++) · Fast Track ANSM accordé (+) · France 2030 / BpiFrance (+) · Pr Christine Petit (Prix Kavli) données précliniques "robustes" (+) · Sanofi 13,9% maintenu (+) · 3 indications potentielles (+) · Tréso fin 2027 (+) · MAIS préclinique → délai long (-) · RN négatif (-)</div>
-  </div>
+    <!-- TECHNIQUE -->
+    <div class="sccard">
+      <div class="sccard-top">
+        <div><div class="scname">Technique</div><div class="scpond">Pondération 25%</div></div>
+        <div class="scval">4,0 / 10</div>
+      </div>
+      <div class="scbw"><div class="scb" style="width:40%"></div></div>
+      <div class="scargs">
+        <div class="scpros">
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">RSI 26,84 = extreme oversold → rebond CT probable</span></div>
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">Rebond +2-4% ce matin (12/06)</span></div>
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">AK floor 0,28€ = downside -1,6% seulement</span></div>
+        </div>
+        <div class="sccons">
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">MACD -0,025 négatif — tendance bearish</span></div>
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">Support 0,30€ cassé → résistance</span></div>
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">-23% cette semaine — capitulation</span></div>
+        </div>
+      </div>
+    </div>
 
-  <div class="scrow">
-    <div><div class="scname">Catalyseurs</div><div style="font-size:11px;color:var(--muted)">Pondération 20%</div></div>
-    <div><div class="scbw"><div class="scb" style="width:80%"></div></div></div>
-    <div class="scval">8,0 / 10</div>
-    <div class="scsub">CTAs France + Canada (10/06) (+++) · Fast Track ANSM (+) · IND USA fin 2026 (+) · Notes analystes J+2-J+5 attendues (+) · RSI 26,84 = catalyseur rebond CT (+) · Lock-up risque réduit à +1,8% PV (+/-) · 1ère admin humaine 2027 (+)</div>
-  </div>
+    <!-- FONDAMENTAUX -->
+    <div class="sccard">
+      <div class="sccard-top">
+        <div><div class="scname">Fondamentaux</div><div class="scpond">Pondération 25%</div></div>
+        <div class="scval">8,0 / 10</div>
+      </div>
+      <div class="scbw"><div class="scb" style="width:80%"></div></div>
+      <div class="scargs">
+        <div class="scpros">
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">GJB2 = 50% surdités génétiques vs OTOF 1-2%</span></div>
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">Zéro concurrent approuvé sur GJB2</span></div>
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">CTAs France + Canada déposées (10/06)</span></div>
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">Pr Christine Petit (Prix Kavli) — données précliniques robustes</span></div>
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">Sanofi 13,9% maintenu · 3 indications · Tréso fin 2027</span></div>
+        </div>
+        <div class="sccons">
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">Préclinique → délai long avant données humaines</span></div>
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">Résultat net négatif</span></div>
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">Financement additionnel 2027 inévitable</span></div>
+        </div>
+      </div>
+    </div>
 
-  <div class="scrow">
-    <div><div class="scname">Consensus</div><div style="font-size:11px;color:var(--muted)">Pondération 15%</div></div>
-    <div><div class="scbw"><div class="scb" style="width:50%"></div></div></div>
-    <div class="scval">5,0 / 10</div>
-    <div class="scsub">Cible 1,44€ non encore révisée post-pivot = +398% affiché (+/-) · Notes Portzamparc + Stifel attendues · Révision probable à la baisse de la cible (SENS-501) mais maintien biais haussier (GJB2 > OTOF) · 2 analystes seulement = couverture limitée (-)</div>
-  </div>
+    <!-- CATALYSEURS -->
+    <div class="sccard">
+      <div class="sccard-top">
+        <div><div class="scname">Catalyseurs</div><div class="scpond">Pondération 20%</div></div>
+        <div class="scval">8,0 / 10</div>
+      </div>
+      <div class="scbw"><div class="scb" style="width:80%"></div></div>
+      <div class="scargs">
+        <div class="scpros">
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">CTAs France + Canada déposées (10/06)</span></div>
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">Fast Track ANSM accordé</span></div>
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">IND USA + Australie prévus fin 2026</span></div>
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">Notes Portzamparc + Stifel attendues (J+2-J+5)</span></div>
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">1ère administration humaine GJB2 — 2027</span></div>
+        </div>
+        <div class="sccons">
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">Lock-up ~28/07 (46 jours)</span></div>
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">RSI oversold : catalyseur CT uniquement</span></div>
+        </div>
+      </div>
+    </div>
 
-  <div class="scrow">
-    <div><div class="scname">Risques</div><div style="font-size:11px;color:var(--muted)">Pondération 15%</div></div>
-    <div><div class="scbw"><div class="scb" style="width:45%"></div></div></div>
-    <div class="scval">4,5 / 10</div>
-    <div class="scsub">Lock-up 28/07 risque réduit — PV +1,8% seulement (+) · Tréso fin 2027 mais financement additionnel 2027 incontournable (-) · MACD négatif (-) · SENS-601 préclinique = délai 2027+ (-) · Perte SENS-501 = réduction pipeline (-) · Cours au plancher AK = downside très limité (+)</div>
-  </div>
+    <!-- CONSENSUS -->
+    <div class="sccard">
+      <div class="sccard-top">
+        <div><div class="scname">Consensus analystes</div><div class="scpond">Pondération 15%</div></div>
+        <div class="scval">5,0 / 10</div>
+      </div>
+      <div class="scbw"><div class="scb" style="width:50%"></div></div>
+      <div class="scargs">
+        <div class="scpros">
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">Cible 1,44€ = +398% affiché (non encore révisée)</span></div>
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">GJB2 > OTOF → révision probable en hausse sur la thèse</span></div>
+        </div>
+        <div class="sccons">
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">2 analystes seulement — couverture limitée</span></div>
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">Révision probable à la baisse sur cible (SENS-501 arrêté)</span></div>
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">Notes post-pivot pas encore publiées</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RISQUES -->
+    <div class="sccard">
+      <div class="sccard-top">
+        <div><div class="scname">Risques</div><div class="scpond">Pondération 15%</div></div>
+        <div class="scval">4,5 / 10</div>
+      </div>
+      <div class="scbw"><div class="scb" style="width:45%"></div></div>
+      <div class="scargs">
+        <div class="scpros">
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">Lock-up risque réduit — PV latente +1,8% seulement</span></div>
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">Cours au plancher AK → downside très limité</span></div>
+          <div class="scarg"><span class="ico-plus">✓</span><span class="scarg-text">Tréso étendue fin 2027</span></div>
+        </div>
+        <div class="sccons">
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">Financement additionnel 2027 incontournable</span></div>
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">SENS-601 préclinique → données en 2027+</span></div>
+          <div class="scarg"><span class="ico-minus">✗</span><span class="scarg-text">MACD négatif — momentum baissier</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /scwrap -->
 
   <div class="score-total">
     <span style="font-size:34px">⭐</span>
@@ -544,6 +627,7 @@ footer strong{color:var(--text);}
     </div>
   </div>
 </div>
+
 
 <!-- ═══════════════ CONCLUSION ═══════════════ -->
 <div class="conclu">
